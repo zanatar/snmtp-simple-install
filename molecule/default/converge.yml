@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include snmtp-simple-install"
+      include_role:
+        name: "snmtp-simple-install"

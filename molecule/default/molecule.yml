@@ -1,0 +1,19 @@
+dependency:
+  name: galaxy
+driver:
+  name: docker
+
+platforms:
+  - name: instance
+    image: ultral/docker_centos_ansible_tests:latest
+    pre_build_image: true
+    privileged: true
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../../snmtp-install.yml
+scenario:
+  name: default
+verifier:
+  name: ansible
+  

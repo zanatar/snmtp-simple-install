@@ -1,0 +1,18 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Start snmpd
+    systemd:
+      name: snmpd
+      enabled: true
+      state: started
+    register: Status
+  - name: check snmpd state
+    assert:
+      that:
+        - "Status.state == 'started'"
+        - "Status.enabled == true"
